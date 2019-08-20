@@ -1,0 +1,233 @@
+﻿@model AutokeyRPC.Models.RPC_Telai
+
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+
+    .fontDimensione {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+    }
+
+    .grassetto {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .azzurro {
+        background-color: #b3d7ff;
+    }
+
+
+    .azzurrino {
+        background-color: #FFFFFF;
+    }
+
+    .bianco {
+        background-color: #ffffff
+    }
+
+    .beige {
+        background-color: #FFCFB9;
+    }
+
+    .grigio {
+        background-color: #bfbfbf;
+    }
+
+    .grigetto {
+        background-color: #e6e6e6;
+    }
+
+    .giallo {
+        background-color: #FFFF00;
+    }
+
+    .verde {
+        background-color: #00CC00;
+    }
+
+    .rosso {
+        background-color: #FF0000;
+    }
+
+    .arancio {
+        background-color: #F7BB40;
+    }
+
+
+
+    option.verde {
+        background-color: #00CC00;
+    }
+
+    option.giallo {
+        background-color: #FFFF00;
+    }
+
+    option.rosso {
+        background-color: #FF0000;
+    }
+
+    .testoVerticale {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        letter-spacing: -0.2em;
+    }
+</style>
+
+<h3>Dati perizia</h3>
+
+@*<div class="jumbotron" style="font-size:14px">*@
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+    int myID = Model.ID;
+    @*@Html.HiddenFor(model => model.IDCantiere)*@
+    @Html.HiddenFor(model => model.IDLotto)
+    @Html.HiddenFor(model => model.IDOperatore)
+    @Html.HiddenFor(model => model.DescrModello)
+    @*@Html.HiddenFor(model => model.Targa)*@
+
+
+    @Html.AntiForgeryToken()
+    <div class="row" style="text-align:left">
+
+        <div class="col-md-6">
+            <table border="0">
+                <tr>
+                    <td style="font-weight:bold">Dati telaio</td>
+                </tr>
+                <tr>
+                    <td>
+                        Telaio :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Telaio, new { @readonly = true, @class = "frmText solaLettura" })
+                        @Html.ValidationMessageFor(model => model.Telaio, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Targa  :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Targa, new { @readonly = true, @class = "frmText solaLettura" })
+                        @Html.ValidationMessageFor(model => model.Targa, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Data ins. :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.InsertDate, new { @readonly = true, @class = "frmText solaLettura" })
+                        @Html.ValidationMessageFor(model => model.IsFinished, "", new { @class = "text-danger" })
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Data modifica :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.LastUpdateTime, new { @readonly = true, @class = "frmText solaLettura" })
+                        @Html.ValidationMessageFor(model => model.LastUpdateTime, "", new { @class = "text-danger" })
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+        <br />
+
+        <div class="col-md-6">
+            <table border="0">
+                <tr>
+                    <td style="font-weight:bold">Assegna luogo telaio</td>
+                </tr>
+                <tr>
+                    <td class="bianco">
+                        @Html.RadioButtonFor(model => model.IDCantiere, "1806") SCHIO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bianco">
+                        @Html.RadioButtonFor(model => model.IDCantiere, "1807") VICENZA
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bianco">
+                        @Html.RadioButtonFor(model => model.IDCantiere, "1808") VITTORIO VENETO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bianco">
+                        @Html.RadioButtonFor(model => model.IDCantiere, "1809") MESTRINO
+                    </td>
+                </tr>
+                <tr><td>&nbsp;</td> </tr>
+            </table>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <table border="0">
+                <tr>
+                    <td style="font-weight:bold">Condizione del telaio</td>
+                </tr>
+                @*<tr>
+                        <td style="color:green">@Html.RadioButtonFor(model => model.Condizione, "OK") Ok</td>
+                        <td style="color:red">@Html.RadioButtonFor(model => model.Condizione, "KO") Ko </td>
+
+                    </tr>*@
+                <td>
+                    @Html.EditorFor(model => model.IsFinished) Perizia terminata
+                    @Html.ValidationMessageFor(model => model.IsFinished, "", new { @class = "text-danger" })
+                </td>
+
+                <tr><td>&nbsp;</td> </tr>
+            </table>
+
+
+        </div>
+
+
+
+        <div class="col-md-6">
+            Note
+            <p>
+
+                @Html.TextAreaFor(model => model.Note, new { style = "width: 150px; height:100px;" })
+            </p>
+        </div>
+
+
+
+
+        @*@Html.TextBox("DescrServizio", "C001")*@
+
+
+
+    </div>
+    <input class="btn btn-primary btn-lg" type="submit" value="Aggiorna" />
+
+    <div class="form-group" style="visibility:hidden;height:0px;">
+        @*@Html.EditorFor(model => model.ID)
+            @Html.EditorFor(model => model.IDCantiere, new { name = "SearchResult" })
+            @Html.EditorFor(model => model.IDLotto)
+            @Html.EditorFor(model => model.IDOperatore)*@
+        <input type="hidden" name="SearchResult">
+    </div>
+
+    @*@Html.ActionLink("Dettagli danno ", "Create", "DanniXTelaio", new { idtelaio = myID })*@
+
+
+}
+

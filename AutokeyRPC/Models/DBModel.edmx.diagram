@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="43ca1f2afaa9414aa161dfa675a32c15" Name="Diagram1" ZoomLevel="56">
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Cantieri" Width="1.5" PointX="4.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutokeyModel.AUK_cantieri" Width="1.5" PointX="2.875" PointY="0.75" />
+        <AssociationConnector Association="AutokeyModel.FK_AUK_cantieri_AUK_cantieri" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_Cantieri_AUK_cantieri" />
+        <EntityTypeShape EntityType="AutokeyModel.AUK_tecnici" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="AutokeyModel.FK_AUK_cantieri_AUK_tecnici" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Lotti" Width="1.5" PointX="13.75" PointY="7" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Telai" Width="1.5" PointX="15.875" PointY="2.5" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_Telai_RPC_Lotti" />
+        <EntityTypeShape EntityType="AutokeyModel.PKT_Operatori" Width="1.5" PointX="8.5" PointY="7.5" />
+        <AssociationConnector Association="AutokeyModel.FK_PKT_Operatori_AUK_tecnici" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_Telai_RPC_Telai11" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_FotoXTelaio" Width="1.5" PointX="12.375" PointY="0.5" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_FotoXTelaio_RPC_Telai" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_telai_vw" Width="1.5" PointX="7.75" PointY="3.375" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_Cantieri_RPC_Cantieri" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Cantieri_vw" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Danni" Width="1.5" PointX="15.875" PointY="0.75" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_DanniXTelaio" Width="1.5" PointX="18.125" PointY="4.375" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Gravita" Width="1.5" PointX="15.875" PointY="11.125" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Parti" Width="1.5" PointX="15.875" PointY="13.5" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_TipoDano" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Gravita" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Parti" />
+        <AssociationConnector Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Telai" />
+        <EntityTypeShape EntityType="AutokeyModel.RPC_Cantieri_vw_FABIO" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

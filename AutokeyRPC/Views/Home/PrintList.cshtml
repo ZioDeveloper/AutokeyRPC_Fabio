@@ -1,0 +1,95 @@
+﻿@model AutokeyRPC.Models.HomeModel
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<p>
+    @Html.ActionLink("Torna alla lavorazione", "DoRefresh")
+</p>
+<table id="tblGrid" class="display">
+    <thead>
+        <tr>
+            <td>
+                Telaio
+            </td>
+            <td>
+                Situazione
+            </td>
+            <td>
+                Terminato
+            </td>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RPC_Telai)
+        {
+
+
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telaio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Condizione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsFinished)
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+
+</p>
+
+<script>
+
+
+    $(document).ready(function () {
+        gridDataTableView("lista telai.xls");
+    });
+
+
+    gridDataTableView = function (fname) {
+        $('#tblGrid').dataTable({
+            
+            select: true,
+            searching: true,
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tutti"]],
+
+            "bFilter": false,
+            "bLengthChange": true,
+            "bPaginate": true,
+            "bInfo": true,
+            "order": [[0, 'desc'], [1, 'desc']],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    text: 'Esporta in excel',
+                    exportOptions: {
+                        modifier: {
+                            page: 'current'
+
+                        }
+                    }
+                }
+            ]
+        });
+    }
+
+</script>

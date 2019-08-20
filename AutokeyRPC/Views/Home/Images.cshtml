@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AutokeyRPC.Models.RPC_FotoXTelaio>
+
+@{
+    ViewBag.Title = "Images";
+}
+
+<h2>Images</h2>
+
+@Html.ActionLink("Torna alla lista", "DoRefresh")
+<br />
+<br />
+
+@foreach (var item in Model)
+{
+    <table>
+        <tr>
+            <td>
+                <img src="@Url.Content("~/UploadedFiles/" + item.NomeFile)" title="@Url.Content(item.NomeFile)" alt="Image" style='height: 400px; width: 400px; object-fit: contain'>
+            </td>
+            <td>
+                @Html.ActionLink("Delete Foto", "DeleteSingleFotoPratica", new { id = item.ID, picName = item.NomeFile }, new { @class = "deleteImg" })
+            </td>
+        </tr>
+    </table>
+
+}
+
+

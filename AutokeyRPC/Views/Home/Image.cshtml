@@ -1,0 +1,17 @@
+﻿@model AutokeyRPC.Models.RPC_Telai
+
+@{
+    ViewBag.Title = "Image";
+}
+
+<br />
+<br />
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload Image:</label>
+    <input type="file" multiple name="files" id="files_0" />
+
+    <br />
+    <input type="submit" value="Upload" class="submit" />
+}

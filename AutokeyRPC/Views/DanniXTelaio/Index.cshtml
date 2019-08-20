@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AutokeyRPC.Models.RPC_DanniXTelaio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Elenco danni </h3>
+
+<p>
+
+    @{int myIDTelaio = 0;}
+
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Parti
+        </th>
+        <th>
+            Danno
+        </th>
+        <th>
+            Gravità
+        </th>
+
+
+        <th>
+            Data inserimento
+        </th>
+        <th>
+            Note
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        myIDTelaio = item.IDTelaio;
+        <tr>
+
+            <td>
+                @*@Html.DisplayFor(modelItem => item.RPC_Danni.ID)*@
+                @Html.DisplayFor(modelItem => item.RPC_Danni.Descr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RPC_Parti.Descr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RPC_Gravita.Descr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteDanno)
+            </td>
+            <td>
+                @Html.ActionLink("Modifica", "Edit", new { id = item.ID, idtelaio = item.IDTelaio })
+                @Html.ActionLink("Guarda", "Details", new { id = item.ID })
+                @Html.ActionLink("Cancella", "Delete", new { id = item.ID })
+            </td>
+
+        </tr>
+        <tr></tr>
+
+    }
+
+</table>
+
+@*@Html.ActionLink("Inserisci nuovo item", "Create", new { idtelaio = myIDTelaio })*@
+<br />
+@Html.ActionLink("Torna  ad elenco telai", "DoRefresh", "Home")

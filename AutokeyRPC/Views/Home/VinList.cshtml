@@ -1,0 +1,236 @@
+﻿@model AutokeyRPC.Models.HomeModel
+
+@{
+    ViewBag.Title = "Elenco telai";
+}
+@*<script src="~/Scripts/jquery-1.12.4.js"></script>*@
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+@Styles.Render("~/Content/mygrid.css")
+
+<h3><u>Situazione telai</u></h3>
+
+@*@Html.ActionLink("Inserisci telaio", "Create", "Home")
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Lista x stampa...", "PrintList", "Home")
+    &nbsp;&nbsp;&nbsp;&nbsp;*@
+@*@Html.ActionLink("Importa telai", "Index", "Telai")*@
+@Html.ActionLink("Torna alla pagina di Login", "Index", new { usr = "C001" })
+<br />
+<br />
+
+
+@using (Html.BeginForm("DoRefresh", "Home", FormMethod.Get))
+{
+    <div class="form-group form-group-sm">
+
+        @{var myScelta = @Session["Scelta1"].ToString();}
+
+        @*@myScelta*@
+        @{var a = "TUTTE  :";}
+        @{var b = "APERTE :";}
+        @{var c = "CHIUSE :";}
+
+        @if (myScelta == "TUTTE")
+        {
+            <table border="0">
+                <tr>
+                    <td>@a</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "TUTTE", new { @checked = true, @onclick = "this.form.submit();" })</td>
+                </tr>
+                <tr>
+                    <td>@b</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "APERTE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Aperte)</td>
+                </tr>
+                <tr>
+                    <td>@c</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "CHIUSE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Chiuse)</td>
+                </tr>
+            </table>
+        }
+        else if (myScelta == "CHIUSE")
+        {
+            <table border="0">
+                <tr>
+                    <td>@a</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
+                </tr>
+                <tr>
+                    <td>@b</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "APERTE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Aperte)</td>
+                </tr>
+                <tr>
+                    <td>@c</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "CHIUSE", new { @checked = true, @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Chiuse)</td>
+                </tr>
+            </table>
+        }
+
+        else if (myScelta == "APERTE")
+        {
+            <table border="0">
+                <tr>
+                    <td>@a</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
+                </tr>
+                <tr>
+                    <td>@b</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "APERTE", new { @checked = true, @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Aperte)</td>
+                </tr>
+                <tr>
+                    <td>@c</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "CHIUSE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Chiuse)</td>
+                </tr>
+            </table>
+        }
+        else
+        {
+            <table border="0">
+                <tr>
+                    <td>@a</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "TUTTE", new { @checked = true, @onclick = "this.form.submit();" }) </td>
+                </tr>
+                <tr>
+                    <td>@b</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "APERTE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Aperte)</td>
+                </tr>
+                <tr>
+                    <td>@c</td>
+                    <td></td>
+                    <td>@Html.RadioButton("Scelta1", "CHIUSE", new { @onclick = "this.form.submit();" })</td>
+                    <td>&emsp;(@ViewBag.Chiuse)</td>
+                </tr>
+            </table>
+        }
+
+        @*Telaio : @Html.TextBox("SearchTelaio", null, new { style = "width:80px", @onchange = "this.form.submit();" })*@
+
+        @*<input type="submit" value="Refresh" class="btn btn-default" />*@
+
+    </div>
+
+
+}
+
+    @*<table>
+        <tr>
+            <td>Da fare : @ViewBag.Aperte</td>
+        <tr>
+            <td>Fatte : @ViewBag.Chiuse</td>
+
+        </tr>
+
+    </table>*@
+<br/>
+
+    <div class="form-group form-group-sm">
+        <table id="tblGrid" class="display">
+            <thead>
+                <tr>
+                    <td>Telaio</td>
+                    <td>Targa</td>
+                    <td>Dettagli</td>
+                    <td>Scatta foto</td>
+                    <td>Numero Foto</td>
+                    @*<td>Stato</td>*@
+                    <td>Chiuso (si/no)</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.RPC_Telai_vw)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telaio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Targa)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "searchImg" })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Foto", "Image", new { id = item.ID }, new { @class = "photoImg" })
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Images", "Home", new { id = item.ID })">@Html.DisplayFor(modelItem => item.NumFoto)</a>
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Condizione)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsFinished)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+     </div>
+        <p>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+            @Html.ActionLink("Torna alla pagina di Login", "Index", new { usr = "C001" })
+        </p>
+
+        <script>
+
+
+            $(document).ready(function () {
+                gridDataTableView("lista telai.xls");
+            });
+
+
+            gridDataTableView = function (fname) {
+                $('#tblGrid').dataTable({
+                    //dom: 'Bfrtip',
+                    //buttons: [{
+                    //    extend: 'excelHtml5',
+                    //    customize: function (xlsx) {
+                    //        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+
+                    //        // Loop over the cells in column `C`
+                    //        $('row c[r^="C"]', sheet).each(function () {
+                    //            // Get the value
+                    //            if ($('is t', this).text() == 'New York') {
+                    //                $(this).attr('s', '20');
+                    //            }
+                    //        });
+                    //    }
+                    //}],
+                    select: true,
+                    searching: true,
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tutti    "]],
+                    stateSave: true,
+                    "bFilter": false,
+                    "bLengthChange": true,
+                    "bPaginate": true,
+                    "bInfo": true,
+                    "order": [[0, 'desc'], [1, 'desc']]
+                });
+            }
+
+        </script>

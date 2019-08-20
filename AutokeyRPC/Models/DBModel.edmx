@@ -1,0 +1,1164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AutokeyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AUK_cantieri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codice" Type="varchar" MaxLength="3" />
+          <Property Name="ragioneSociale" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID_localita" Type="int" />
+          <Property Name="ID_cap" Type="int" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="ID_nazione" Type="int" />
+          <Property Name="ID_maps" Type="int" />
+          <Property Name="ID_valutazioneCantiere" Type="int" />
+          <Property Name="piva_cantiere" Type="varchar" MaxLength="12" />
+          <Property Name="tel1_cantiere" Type="varchar" MaxLength="20" />
+          <Property Name="tel2_cantiere" Type="varchar" MaxLength="20" />
+          <Property Name="tel3_cantiere" Type="varchar" MaxLength="20" />
+          <Property Name="mail1_cantiere" Type="varchar" MaxLength="100" />
+          <Property Name="mail2_cantiere" Type="varchar" MaxLength="100" />
+          <Property Name="mail3_cantiere" Type="varchar" MaxLength="100" />
+          <Property Name="fax1_cantiere" Type="varchar" MaxLength="20" />
+          <Property Name="sitoWeb_cantiere" Type="varchar" MaxLength="50" />
+          <Property Name="referente" Type="varchar" MaxLength="100" />
+          <Property Name="id_reteCantiere_BUTTARE" Type="int" />
+          <Property Name="id_tipoCantiere" Type="int" Nullable="false" />
+          <Property Name="id_contratto" Type="int" />
+          <Property Name="dataInizioAttivitaCantiere" Type="datetime" />
+          <Property Name="dataFineAttivitaCantiere" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_presenzaLavaggio" Type="bit" Nullable="false" />
+          <Property Name="is_vetturaSostitutiva" Type="bit" Nullable="false" />
+          <Property Name="costoVetturaSostitutiva" Type="float" />
+          <Property Name="costoHosting" Type="float" />
+          <Property Name="costoManoDopera" Type="float" />
+          <Property Name="costoMaterialeDiConsumo" Type="float" />
+          <Property Name="is_CompAss_Generali" Type="bit" Nullable="false" />
+          <Property Name="is_reteAutokey" Type="bit" Nullable="false" />
+          <Property Name="is_CompAss_Cattolica" Type="bit" Nullable="false" />
+          <Property Name="ID_sconto" Type="int" />
+          <Property Name="nota" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_cantiereAttivo" Type="bit" Nullable="false" />
+          <Property Name="insertTime" Type="datetime" />
+          <Property Name="Regione" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pv" Type="nvarchar" MaxLength="255" />
+          <Property Name="Citta" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cap" Type="float" />
+          <Property Name="ID_metodoPagamentoCantiere" Type="int" />
+          <Property Name="ID_giorniPagamentoCantiere" Type="int" />
+          <Property Name="coordinateBancarieCantiere" Type="varchar" MaxLength="50" />
+          <Property Name="is_inviataProceduraModulistica" Type="bit" Nullable="false" />
+          <Property Name="is_attesaContrattoCantiere" Type="bit" Nullable="false" />
+          <Property Name="is_inviataRichiestaFidelizzazione" Type="bit" Nullable="false" />
+          <Property Name="latitudine" Type="float" />
+          <Property Name="longitudine" Type="float" />
+          <Property Name="insertUser" Type="varchar" MaxLength="20" />
+          <Property Name="CodiceCliente" Type="varchar" MaxLength="6" />
+          <Property Name="Codice_SAP" Type="varchar" MaxLength="8" />
+          <Property Name="ID_tecnicoReferente" Type="int" />
+          <Property Name="is_privacy_GDPR" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUK_tecnici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codice" Type="varchar" MaxLength="4" />
+          <Property Name="ragioneSocialeTecnico" Type="varchar" MaxLength="50" />
+          <Property Name="cognomeTecnico" Type="varchar" MaxLength="50" />
+          <Property Name="nomeTecnico" Type="varchar" MaxLength="50" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="100" />
+          <Property Name="ID_localita_tecnico" Type="int" />
+          <Property Name="ID_regione" Type="int" />
+          <Property Name="note_tecnico" Type="varchar" MaxLength="250" />
+          <Property Name="tel1_tecnico" Type="varchar" MaxLength="50" />
+          <Property Name="tel2_tecnico" Type="varchar" MaxLength="50" />
+          <Property Name="mail1_tecnico" Type="varchar" MaxLength="150" />
+          <Property Name="is_tecnico" Type="bit" Nullable="false" />
+          <Property Name="is_smontatore" Type="bit" Nullable="false" />
+          <Property Name="is_controller" Type="bit" Nullable="false" />
+          <Property Name="is_perito" Type="bit" Nullable="false" />
+          <Property Name="ID_valutazioneTecnico" Type="int" />
+          <Property Name="ID_fornitoreTecnico" Type="int" />
+          <Property Name="IDruolo" Type="int" />
+          <Property Name="insertUser" Type="varchar" MaxLength="20" />
+          <Property Name="Is_assicurato" Type="bit" Nullable="false" />
+          <Property Name="Is_OnCalendario" Type="bit" Nullable="false" />
+          <Property Name="ID_taglia" Type="int" />
+          <Property Name="dataInizioAttivitaTecnico" Type="datetime" />
+          <Property Name="dataFineAttivitaTecnico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PKT_Operatori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IDTecnici" Type="int" />
+          <Property Name="IDRuolo" Type="int" />
+        </EntityType>
+        <EntityType Name="RPC_Cantieri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCantiere" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RPC_Danni">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RPC_DanniXTelaio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTelaio" Type="int" Nullable="false" />
+          <Property Name="IDParte" Type="int" />
+          <Property Name="IDDanno" Type="int" />
+          <Property Name="IDGravita" Type="int" />
+          <Property Name="InsertDate" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="NoteDanno" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RPC_FotoXTelaio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTelaio" Type="int" Nullable="false" />
+          <Property Name="NomeFile" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RPC_Gravita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RPC_Lotti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RPC_Parti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RPC_Telai">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCantiere" Type="int" Nullable="false" />
+          <Property Name="IDOperatore" Type="varchar" MaxLength="4" />
+          <Property Name="IDLotto" Type="int" Nullable="false" />
+          <Property Name="Telaio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descr" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFinished" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="LastUpdateTime" Type="datetime" />
+          <Property Name="Note" Type="varchar(max)" />
+          <Property Name="Condizione" Type="varchar" MaxLength="2" />
+          <Property Name="DescrModello" Type="varchar" MaxLength="50" />
+          <Property Name="Targa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autokey.dbo.RPC_Cantieri_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPC_Cantieri_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IDCantiere" Type="int" Nullable="false" />
+          <Property Name="ragioneSociale" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autokey.dbo.RPC_Cantieri_vw_FABIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPC_Cantieri_vw_FABIO">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IDCantiere" Type="int" Nullable="false" />
+          <Property Name="ragioneSociale" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autokey.dbo.RPC_telai_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPC_telai_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+            <PropertyRef Name="IDLotto" />
+            <PropertyRef Name="IsFinished" />
+            <PropertyRef Name="InsertDate" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IDCantiere" Type="int" Nullable="false" />
+          <Property Name="IDOperatore" Type="varchar" MaxLength="4" />
+          <Property Name="IDLotto" Type="int" Nullable="false" />
+          <Property Name="Telaio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descr" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFinished" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="NumFoto" Type="int" />
+          <Property Name="LastUpdateTime" Type="datetime" />
+          <Property Name="Note" Type="varchar(max)" />
+          <Property Name="Cantiere" Type="nvarchar" MaxLength="50" />
+          <Property Name="Condizione" Type="varchar" MaxLength="2" />
+          <Property Name="DescrModello" Type="varchar" MaxLength="50" />
+          <Property Name="Targa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AUK_cantieri_AUK_cantieri">
+          <End Role="AUK_cantieri" Type="Self.AUK_cantieri" Multiplicity="1" />
+          <End Role="AUK_cantieri1" Type="Self.AUK_cantieri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUK_cantieri1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AUK_cantieri_AUK_tecnici">
+          <End Role="AUK_tecnici" Type="Self.AUK_tecnici" Multiplicity="0..1" />
+          <End Role="AUK_cantieri" Type="Self.AUK_cantieri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_tecnici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUK_cantieri">
+              <PropertyRef Name="ID_tecnicoReferente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PKT_Operatori_AUK_tecnici">
+          <End Role="AUK_tecnici" Type="Self.AUK_tecnici" Multiplicity="0..1" />
+          <End Role="PKT_Operatori" Type="Self.PKT_Operatori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_tecnici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PKT_Operatori">
+              <PropertyRef Name="IDTecnici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_Cantieri_AUK_cantieri">
+          <End Role="AUK_cantieri" Type="Self.AUK_cantieri" Multiplicity="1" />
+          <End Role="RPC_Cantieri" Type="Self.RPC_Cantieri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Cantieri">
+              <PropertyRef Name="IDCantiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_Cantieri_RPC_Cantieri">
+          <End Role="RPC_Cantieri" Type="Self.RPC_Cantieri" Multiplicity="1" />
+          <End Role="RPC_Cantieri1" Type="Self.RPC_Cantieri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Cantieri1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Gravita">
+          <End Role="RPC_Gravita" Type="Self.RPC_Gravita" Multiplicity="0..1" />
+          <End Role="RPC_DanniXTelaio" Type="Self.RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Gravita">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDGravita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Parti">
+          <End Role="RPC_Parti" Type="Self.RPC_Parti" Multiplicity="0..1" />
+          <End Role="RPC_DanniXTelaio" Type="Self.RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Parti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDParte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Telai">
+          <End Role="RPC_Telai" Type="Self.RPC_Telai" Multiplicity="1" />
+          <End Role="RPC_DanniXTelaio" Type="Self.RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Telai">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDTelaio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_TipoDano">
+          <End Role="RPC_Danni" Type="Self.RPC_Danni" Multiplicity="0..1" />
+          <End Role="RPC_DanniXTelaio" Type="Self.RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Danni">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDDanno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_FotoXTelaio_RPC_Telai">
+          <End Role="RPC_Telai" Type="Self.RPC_Telai" Multiplicity="1" />
+          <End Role="RPC_FotoXTelaio" Type="Self.RPC_FotoXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Telai">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_FotoXTelaio">
+              <PropertyRef Name="IDTelaio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_RPC_Telai_RPC_Cantieri1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_RPC_Telai_RPC_Cantieri1" />-->
+        <Association Name="FK_RPC_Telai_RPC_Lotti">
+          <End Role="RPC_Lotti" Type="Self.RPC_Lotti" Multiplicity="1" />
+          <End Role="RPC_Telai" Type="Self.RPC_Telai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Lotti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Telai">
+              <PropertyRef Name="IDLotto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutokeyModelStoreContainer">
+          <EntitySet Name="AUK_cantieri" EntityType="Self.AUK_cantieri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AUK_tecnici" EntityType="Self.AUK_tecnici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PKT_Operatori" EntityType="Self.PKT_Operatori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Cantieri" EntityType="Self.RPC_Cantieri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Danni" EntityType="Self.RPC_Danni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_DanniXTelaio" EntityType="Self.RPC_DanniXTelaio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_FotoXTelaio" EntityType="Self.RPC_FotoXTelaio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Gravita" EntityType="Self.RPC_Gravita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Lotti" EntityType="Self.RPC_Lotti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Parti" EntityType="Self.RPC_Parti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Telai" EntityType="Self.RPC_Telai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPC_Cantieri_vw" EntityType="Self.RPC_Cantieri_vw" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPC_Cantieri_vw].[ID] AS [ID], 
+    [RPC_Cantieri_vw].[IDCantiere] AS [IDCantiere], 
+    [RPC_Cantieri_vw].[ragioneSociale] AS [ragioneSociale]
+    FROM [dbo].[RPC_Cantieri_vw] AS [RPC_Cantieri_vw]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RPC_Cantieri_vw_FABIO" EntityType="Self.RPC_Cantieri_vw_FABIO" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPC_Cantieri_vw_FABIO].[ID] AS [ID], 
+    [RPC_Cantieri_vw_FABIO].[IDCantiere] AS [IDCantiere], 
+    [RPC_Cantieri_vw_FABIO].[ragioneSociale] AS [ragioneSociale]
+    FROM [dbo].[RPC_Cantieri_vw_FABIO] AS [RPC_Cantieri_vw_FABIO]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RPC_telai_vw" EntityType="Self.RPC_telai_vw" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPC_telai_vw].[ID] AS [ID], 
+    [RPC_telai_vw].[IDCantiere] AS [IDCantiere], 
+    [RPC_telai_vw].[IDOperatore] AS [IDOperatore], 
+    [RPC_telai_vw].[IDLotto] AS [IDLotto], 
+    [RPC_telai_vw].[Telaio] AS [Telaio], 
+    [RPC_telai_vw].[Descr] AS [Descr], 
+    [RPC_telai_vw].[IsFinished] AS [IsFinished], 
+    [RPC_telai_vw].[InsertDate] AS [InsertDate], 
+    [RPC_telai_vw].[IsNew] AS [IsNew], 
+    [RPC_telai_vw].[NumFoto] AS [NumFoto], 
+    [RPC_telai_vw].[LastUpdateTime] AS [LastUpdateTime], 
+    [RPC_telai_vw].[Note] AS [Note], 
+    [RPC_telai_vw].[Cantiere] AS [Cantiere], 
+    [RPC_telai_vw].[Condizione] AS [Condizione], 
+    [RPC_telai_vw].[DescrModello] AS [DescrModello], 
+    [RPC_telai_vw].[Targa] AS [Targa]
+    FROM [dbo].[RPC_telai_vw] AS [RPC_telai_vw]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AUK_cantieri_AUK_cantieri" Association="Self.FK_AUK_cantieri_AUK_cantieri">
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+            <End Role="AUK_cantieri1" EntitySet="AUK_cantieri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AUK_cantieri_AUK_tecnici" Association="Self.FK_AUK_cantieri_AUK_tecnici">
+            <End Role="AUK_tecnici" EntitySet="AUK_tecnici" />
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PKT_Operatori_AUK_tecnici" Association="Self.FK_PKT_Operatori_AUK_tecnici">
+            <End Role="AUK_tecnici" EntitySet="AUK_tecnici" />
+            <End Role="PKT_Operatori" EntitySet="PKT_Operatori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_Cantieri_AUK_cantieri" Association="Self.FK_RPC_Cantieri_AUK_cantieri">
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+            <End Role="RPC_Cantieri" EntitySet="RPC_Cantieri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_Cantieri_RPC_Cantieri" Association="Self.FK_RPC_Cantieri_RPC_Cantieri">
+            <End Role="RPC_Cantieri" EntitySet="RPC_Cantieri" />
+            <End Role="RPC_Cantieri1" EntitySet="RPC_Cantieri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Gravita" Association="Self.FK_RPC_DanniXTelaio_RPC_Gravita">
+            <End Role="RPC_Gravita" EntitySet="RPC_Gravita" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Parti" Association="Self.FK_RPC_DanniXTelaio_RPC_Parti">
+            <End Role="RPC_Parti" EntitySet="RPC_Parti" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Telai" Association="Self.FK_RPC_DanniXTelaio_RPC_Telai">
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_TipoDano" Association="Self.FK_RPC_DanniXTelaio_RPC_TipoDano">
+            <End Role="RPC_Danni" EntitySet="RPC_Danni" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_FotoXTelaio_RPC_Telai" Association="Self.FK_RPC_FotoXTelaio_RPC_Telai">
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+            <End Role="RPC_FotoXTelaio" EntitySet="RPC_FotoXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_Telai_RPC_Lotti" Association="Self.FK_RPC_Telai_RPC_Lotti">
+            <End Role="RPC_Lotti" EntitySet="RPC_Lotti" />
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutokeyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RPC_Cantieri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCantiere" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUK_cantieri" Relationship="AutokeyModel.FK_RPC_Cantieri_AUK_cantieri" FromRole="RPC_Cantieri" ToRole="AUK_cantieri" />
+          <NavigationProperty Name="RPC_Cantieri1" Relationship="AutokeyModel.FK_RPC_Cantieri_RPC_Cantieri" FromRole="RPC_Cantieri" ToRole="RPC_Cantieri1" />
+          <NavigationProperty Name="RPC_Cantieri2" Relationship="AutokeyModel.FK_RPC_Cantieri_RPC_Cantieri" FromRole="RPC_Cantieri1" ToRole="RPC_Cantieri" />
+          </EntityType>
+        <EntityContainer Name="AutokeyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RPC_Cantieri" EntityType="Self.RPC_Cantieri" />
+          <EntitySet Name="AUK_cantieri" EntityType="AutokeyModel.AUK_cantieri" />
+          <AssociationSet Name="FK_AUK_cantieri_AUK_cantieri" Association="AutokeyModel.FK_AUK_cantieri_AUK_cantieri">
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+            <End Role="AUK_cantieri1" EntitySet="AUK_cantieri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_Cantieri_AUK_cantieri" Association="AutokeyModel.FK_RPC_Cantieri_AUK_cantieri">
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+            <End Role="RPC_Cantieri" EntitySet="RPC_Cantieri" />
+          </AssociationSet>
+          <EntitySet Name="AUK_tecnici" EntityType="AutokeyModel.AUK_tecnici" />
+          <AssociationSet Name="FK_AUK_cantieri_AUK_tecnici" Association="AutokeyModel.FK_AUK_cantieri_AUK_tecnici">
+            <End Role="AUK_tecnici" EntitySet="AUK_tecnici" />
+            <End Role="AUK_cantieri" EntitySet="AUK_cantieri" />
+          </AssociationSet>
+          <EntitySet Name="RPC_Lotti" EntityType="AutokeyModel.RPC_Lotti" />
+          <EntitySet Name="RPC_Telai" EntityType="AutokeyModel.RPC_Telai" />
+          <AssociationSet Name="FK_RPC_Telai_RPC_Lotti" Association="AutokeyModel.FK_RPC_Telai_RPC_Lotti">
+            <End Role="RPC_Lotti" EntitySet="RPC_Lotti" />
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+          </AssociationSet>
+          <EntitySet Name="PKT_Operatori" EntityType="AutokeyModel.PKT_Operatori" />
+          <AssociationSet Name="FK_PKT_Operatori_AUK_tecnici" Association="AutokeyModel.FK_PKT_Operatori_AUK_tecnici">
+            <End Role="AUK_tecnici" EntitySet="AUK_tecnici" />
+            <End Role="PKT_Operatori" EntitySet="PKT_Operatori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_Telai_RPC_Telai11" Association="AutokeyModel.FK_RPC_Telai_RPC_Telai11">
+            <End Role="PKT_Operatori" EntitySet="PKT_Operatori" />
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+          </AssociationSet>
+          <EntitySet Name="RPC_FotoXTelaio" EntityType="AutokeyModel.RPC_FotoXTelaio" />
+          <AssociationSet Name="FK_RPC_FotoXTelaio_RPC_Telai" Association="AutokeyModel.FK_RPC_FotoXTelaio_RPC_Telai">
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+            <End Role="RPC_FotoXTelaio" EntitySet="RPC_FotoXTelaio" />
+          </AssociationSet>
+          <EntitySet Name="RPC_telai_vw" EntityType="AutokeyModel.RPC_telai_vw" />
+          <AssociationSet Name="FK_RPC_Cantieri_RPC_Cantieri" Association="AutokeyModel.FK_RPC_Cantieri_RPC_Cantieri">
+            <End Role="RPC_Cantieri" EntitySet="RPC_Cantieri" />
+            <End Role="RPC_Cantieri1" EntitySet="RPC_Cantieri" />
+          </AssociationSet>
+          <EntitySet Name="RPC_Cantieri_vw" EntityType="AutokeyModel.RPC_Cantieri_vw" />
+          <EntitySet Name="RPC_Danni" EntityType="AutokeyModel.RPC_Danni" />
+          <EntitySet Name="RPC_DanniXTelaio" EntityType="AutokeyModel.RPC_DanniXTelaio" />
+          <EntitySet Name="RPC_Gravita" EntityType="AutokeyModel.RPC_Gravita" />
+          <EntitySet Name="RPC_Parti" EntityType="AutokeyModel.RPC_Parti" />
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_TipoDano" Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_TipoDano">
+            <End Role="RPC_Danni" EntitySet="RPC_Danni" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Gravita" Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Gravita">
+            <End Role="RPC_Gravita" EntitySet="RPC_Gravita" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Parti" Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Parti">
+            <End Role="RPC_Parti" EntitySet="RPC_Parti" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPC_DanniXTelaio_RPC_Telai" Association="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Telai">
+            <End Role="RPC_Telai" EntitySet="RPC_Telai" />
+            <End Role="RPC_DanniXTelaio" EntitySet="RPC_DanniXTelaio" />
+          </AssociationSet>
+          <EntitySet Name="RPC_Cantieri_vw_FABIO" EntityType="AutokeyModel.RPC_Cantieri_vw_FABIO" />
+        </EntityContainer>
+        <EntityType Name="AUK_cantieri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codice" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ragioneSociale" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID_localita" Type="Int32" />
+          <Property Name="ID_cap" Type="Int32" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_nazione" Type="Int32" />
+          <Property Name="ID_maps" Type="Int32" />
+          <Property Name="ID_valutazioneCantiere" Type="Int32" />
+          <Property Name="piva_cantiere" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="tel1_cantiere" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tel2_cantiere" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tel3_cantiere" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mail1_cantiere" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mail2_cantiere" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mail3_cantiere" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fax1_cantiere" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sitoWeb_cantiere" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="referente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_reteCantiere_BUTTARE" Type="Int32" />
+          <Property Name="id_tipoCantiere" Type="Int32" Nullable="false" />
+          <Property Name="id_contratto" Type="Int32" />
+          <Property Name="dataInizioAttivitaCantiere" Type="DateTime" Precision="3" />
+          <Property Name="dataFineAttivitaCantiere" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="is_presenzaLavaggio" Type="Boolean" Nullable="false" />
+          <Property Name="is_vetturaSostitutiva" Type="Boolean" Nullable="false" />
+          <Property Name="costoVetturaSostitutiva" Type="Double" />
+          <Property Name="costoHosting" Type="Double" />
+          <Property Name="costoManoDopera" Type="Double" />
+          <Property Name="costoMaterialeDiConsumo" Type="Double" />
+          <Property Name="is_CompAss_Generali" Type="Boolean" Nullable="false" />
+          <Property Name="is_reteAutokey" Type="Boolean" Nullable="false" />
+          <Property Name="is_CompAss_Cattolica" Type="Boolean" Nullable="false" />
+          <Property Name="ID_sconto" Type="Int32" />
+          <Property Name="nota" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="is_cantiereAttivo" Type="Boolean" Nullable="false" />
+          <Property Name="insertTime" Type="DateTime" Precision="3" />
+          <Property Name="Regione" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Pv" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Citta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cap" Type="Double" />
+          <Property Name="ID_metodoPagamentoCantiere" Type="Int32" />
+          <Property Name="ID_giorniPagamentoCantiere" Type="Int32" />
+          <Property Name="coordinateBancarieCantiere" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="is_inviataProceduraModulistica" Type="Boolean" Nullable="false" />
+          <Property Name="is_attesaContrattoCantiere" Type="Boolean" Nullable="false" />
+          <Property Name="is_inviataRichiestaFidelizzazione" Type="Boolean" Nullable="false" />
+          <Property Name="latitudine" Type="Double" />
+          <Property Name="longitudine" Type="Double" />
+          <Property Name="insertUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodiceCliente" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Codice_SAP" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ID_tecnicoReferente" Type="Int32" />
+          <Property Name="is_privacy_GDPR" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AUK_cantieri1" Relationship="AutokeyModel.FK_AUK_cantieri_AUK_cantieri" FromRole="AUK_cantieri" ToRole="AUK_cantieri1" />
+          <NavigationProperty Name="AUK_cantieri2" Relationship="AutokeyModel.FK_AUK_cantieri_AUK_cantieri" FromRole="AUK_cantieri1" ToRole="AUK_cantieri" />
+          <NavigationProperty Name="RPC_Cantieri" Relationship="AutokeyModel.FK_RPC_Cantieri_AUK_cantieri" FromRole="AUK_cantieri" ToRole="RPC_Cantieri" />
+          <NavigationProperty Name="AUK_tecnici" Relationship="AutokeyModel.FK_AUK_cantieri_AUK_tecnici" FromRole="AUK_cantieri" ToRole="AUK_tecnici" />
+        </EntityType>
+        <Association Name="FK_AUK_cantieri_AUK_cantieri">
+          <End Type="AutokeyModel.AUK_cantieri" Role="AUK_cantieri" Multiplicity="1" />
+          <End Type="AutokeyModel.AUK_cantieri" Role="AUK_cantieri1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUK_cantieri1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_Cantieri_AUK_cantieri">
+          <End Type="AutokeyModel.AUK_cantieri" Role="AUK_cantieri" Multiplicity="1" />
+          <End Type="AutokeyModel.RPC_Cantieri" Role="RPC_Cantieri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Cantieri">
+              <PropertyRef Name="IDCantiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AUK_tecnici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codice" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ragioneSocialeTecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cognomeTecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomeTecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_localita_tecnico" Type="Int32" />
+          <Property Name="ID_regione" Type="Int32" />
+          <Property Name="note_tecnico" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="tel1_tecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel2_tecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail1_tecnico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="is_tecnico" Type="Boolean" Nullable="false" />
+          <Property Name="is_smontatore" Type="Boolean" Nullable="false" />
+          <Property Name="is_controller" Type="Boolean" Nullable="false" />
+          <Property Name="is_perito" Type="Boolean" Nullable="false" />
+          <Property Name="ID_valutazioneTecnico" Type="Int32" />
+          <Property Name="ID_fornitoreTecnico" Type="Int32" />
+          <Property Name="IDruolo" Type="Int32" />
+          <Property Name="insertUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Is_assicurato" Type="Boolean" Nullable="false" />
+          <Property Name="Is_OnCalendario" Type="Boolean" Nullable="false" />
+          <Property Name="ID_taglia" Type="Int32" />
+          <Property Name="dataInizioAttivitaTecnico" Type="DateTime" Precision="3" />
+          <Property Name="dataFineAttivitaTecnico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AUK_cantieri" Relationship="AutokeyModel.FK_AUK_cantieri_AUK_tecnici" FromRole="AUK_tecnici" ToRole="AUK_cantieri" />
+          <NavigationProperty Name="PKT_Operatori" Relationship="AutokeyModel.FK_PKT_Operatori_AUK_tecnici" FromRole="AUK_tecnici" ToRole="PKT_Operatori" />
+        </EntityType>
+        <Association Name="FK_AUK_cantieri_AUK_tecnici">
+          <End Type="AutokeyModel.AUK_tecnici" Role="AUK_tecnici" Multiplicity="0..1" />
+          <End Type="AutokeyModel.AUK_cantieri" Role="AUK_cantieri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_tecnici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUK_cantieri">
+              <PropertyRef Name="ID_tecnicoReferente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RPC_Lotti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RPC_Telai" Relationship="AutokeyModel.FK_RPC_Telai_RPC_Lotti" FromRole="RPC_Lotti" ToRole="RPC_Telai" />
+          <Property Name="Descrizione" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RPC_Telai">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCantiere" Type="Int32" Nullable="false" />
+          <Property Name="IDOperatore" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IDLotto" Type="Int32" annotation:StoreGeneratedPattern="None" Nullable="false" />
+          <Property Name="IsFinished" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="RPC_Lotti" Relationship="AutokeyModel.FK_RPC_Telai_RPC_Lotti" FromRole="RPC_Telai" ToRole="RPC_Lotti" />
+          <NavigationProperty Name="PKT_Operatori" Relationship="AutokeyModel.FK_RPC_Telai_RPC_Telai11" FromRole="RPC_Telai" ToRole="PKT_Operatori" />
+          <Property Name="Telaio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RPC_FotoXTelaio" Relationship="AutokeyModel.FK_RPC_FotoXTelaio_RPC_Telai" FromRole="RPC_Telai" ToRole="RPC_FotoXTelaio" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="LastUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Condizione" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RPC_DanniXTelaio" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Telai" FromRole="RPC_Telai" ToRole="RPC_DanniXTelaio" />
+          <Property Name="DescrModello" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Targa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_RPC_Telai_RPC_Lotti">
+          <End Type="AutokeyModel.RPC_Lotti" Role="RPC_Lotti" Multiplicity="1" />
+          <End Type="AutokeyModel.RPC_Telai" Role="RPC_Telai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Lotti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Telai">
+              <PropertyRef Name="IDLotto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PKT_Operatori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IDTecnici" Type="Int32" />
+          <Property Name="IDRuolo" Type="Int32" />
+          <NavigationProperty Name="AUK_tecnici" Relationship="AutokeyModel.FK_PKT_Operatori_AUK_tecnici" FromRole="PKT_Operatori" ToRole="AUK_tecnici" />
+          <NavigationProperty Name="RPC_Telai" Relationship="AutokeyModel.FK_RPC_Telai_RPC_Telai11" FromRole="PKT_Operatori" ToRole="RPC_Telai" />
+        </EntityType>
+        <Association Name="FK_PKT_Operatori_AUK_tecnici">
+          <End Type="AutokeyModel.AUK_tecnici" Role="AUK_tecnici" Multiplicity="0..1" />
+          <End Type="AutokeyModel.PKT_Operatori" Role="PKT_Operatori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUK_tecnici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PKT_Operatori">
+              <PropertyRef Name="IDTecnici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_Telai_RPC_Telai11">
+          <End Type="AutokeyModel.PKT_Operatori" Role="PKT_Operatori" Multiplicity="0..1" />
+          <End Type="AutokeyModel.RPC_Telai" Role="RPC_Telai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PKT_Operatori">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Telai">
+              <PropertyRef Name="IDOperatore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RPC_FotoXTelaio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTelaio" Type="Int32" Nullable="false" />
+          <Property Name="NomeFile" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RPC_Telai" Relationship="AutokeyModel.FK_RPC_FotoXTelaio_RPC_Telai" FromRole="RPC_FotoXTelaio" ToRole="RPC_Telai" />
+        </EntityType>
+        <Association Name="FK_RPC_FotoXTelaio_RPC_Telai">
+          <End Type="AutokeyModel.RPC_Telai" Role="RPC_Telai" Multiplicity="1" />
+          <End Type="AutokeyModel.RPC_FotoXTelaio" Role="RPC_FotoXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Telai">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_FotoXTelaio">
+              <PropertyRef Name="IDTelaio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RPC_telai_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+            <PropertyRef Name="IDLotto" />
+            <PropertyRef Name="IsFinished" />
+            <PropertyRef Name="InsertDate" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IDCantiere" Type="Int32" Nullable="false" />
+          <Property Name="IDOperatore" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IDLotto" Type="Int32" Nullable="false" />
+          <Property Name="Telaio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFinished" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="NumFoto" Type="Int32" />
+          <Property Name="LastUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantiere" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Condizione" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DescrModello" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Targa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_RPC_Cantieri_RPC_Cantieri">
+          <End Type="AutokeyModel.RPC_Cantieri" Role="RPC_Cantieri" Multiplicity="1" />
+          <End Type="AutokeyModel.RPC_Cantieri" Role="RPC_Cantieri1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Cantieri">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_Cantieri1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RPC_Cantieri_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IDCantiere" Type="Int32" Nullable="false" />
+          <Property Name="ragioneSociale" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RPC_Danni">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RPC_DanniXTelaio" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_TipoDano" FromRole="RPC_Danni" ToRole="RPC_DanniXTelaio" />
+        </EntityType>
+        <EntityType Name="RPC_DanniXTelaio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTelaio" Type="Int32" Nullable="false" />
+          <Property Name="IDParte" Type="Int32" />
+          <Property Name="IDDanno" Type="Int32" />
+          <Property Name="IDGravita" Type="Int32" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="NoteDanno" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RPC_Danni" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_TipoDano" FromRole="RPC_DanniXTelaio" ToRole="RPC_Danni" />
+          <NavigationProperty Name="RPC_Gravita" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Gravita" FromRole="RPC_DanniXTelaio" ToRole="RPC_Gravita" />
+          <NavigationProperty Name="RPC_Parti" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Parti" FromRole="RPC_DanniXTelaio" ToRole="RPC_Parti" />
+          <NavigationProperty Name="RPC_Telai" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Telai" FromRole="RPC_DanniXTelaio" ToRole="RPC_Telai" />
+        </EntityType>
+        <EntityType Name="RPC_Gravita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RPC_DanniXTelaio" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Gravita" FromRole="RPC_Gravita" ToRole="RPC_DanniXTelaio" />
+        </EntityType>
+        <EntityType Name="RPC_Parti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RPC_DanniXTelaio" Relationship="AutokeyModel.FK_RPC_DanniXTelaio_RPC_Parti" FromRole="RPC_Parti" ToRole="RPC_DanniXTelaio" />
+        </EntityType>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_TipoDano">
+          <End Type="AutokeyModel.RPC_Danni" Role="RPC_Danni" Multiplicity="0..1" />
+          <End Type="AutokeyModel.RPC_DanniXTelaio" Role="RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Danni">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDDanno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Gravita">
+          <End Type="AutokeyModel.RPC_Gravita" Role="RPC_Gravita" Multiplicity="0..1" />
+          <End Type="AutokeyModel.RPC_DanniXTelaio" Role="RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Gravita">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDGravita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Parti">
+          <End Type="AutokeyModel.RPC_Parti" Role="RPC_Parti" Multiplicity="0..1" />
+          <End Type="AutokeyModel.RPC_DanniXTelaio" Role="RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Parti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDParte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPC_DanniXTelaio_RPC_Telai">
+          <End Type="AutokeyModel.RPC_Telai" Role="RPC_Telai" Multiplicity="1" />
+          <End Type="AutokeyModel.RPC_DanniXTelaio" Role="RPC_DanniXTelaio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RPC_Telai">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RPC_DanniXTelaio">
+              <PropertyRef Name="IDTelaio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RPC_Cantieri_vw_FABIO">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDCantiere" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IDCantiere" Type="Int32" Nullable="false" />
+          <Property Name="ragioneSociale" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutokeyModelStoreContainer" CdmEntityContainer="AutokeyEntities">
+          <EntitySetMapping Name="RPC_Cantieri">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Cantieri">
+              <MappingFragment StoreEntitySet="RPC_Cantieri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDCantiere" ColumnName="IDCantiere" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUK_cantieri">
+            <EntityTypeMapping TypeName="AutokeyModel.AUK_cantieri">
+              <MappingFragment StoreEntitySet="AUK_cantieri">
+                <ScalarProperty Name="is_privacy_GDPR" ColumnName="is_privacy_GDPR" />
+                <ScalarProperty Name="ID_tecnicoReferente" ColumnName="ID_tecnicoReferente" />
+                <ScalarProperty Name="Codice_SAP" ColumnName="Codice_SAP" />
+                <ScalarProperty Name="CodiceCliente" ColumnName="CodiceCliente" />
+                <ScalarProperty Name="insertUser" ColumnName="insertUser" />
+                <ScalarProperty Name="longitudine" ColumnName="longitudine" />
+                <ScalarProperty Name="latitudine" ColumnName="latitudine" />
+                <ScalarProperty Name="is_inviataRichiestaFidelizzazione" ColumnName="is_inviataRichiestaFidelizzazione" />
+                <ScalarProperty Name="is_attesaContrattoCantiere" ColumnName="is_attesaContrattoCantiere" />
+                <ScalarProperty Name="is_inviataProceduraModulistica" ColumnName="is_inviataProceduraModulistica" />
+                <ScalarProperty Name="coordinateBancarieCantiere" ColumnName="coordinateBancarieCantiere" />
+                <ScalarProperty Name="ID_giorniPagamentoCantiere" ColumnName="ID_giorniPagamentoCantiere" />
+                <ScalarProperty Name="ID_metodoPagamentoCantiere" ColumnName="ID_metodoPagamentoCantiere" />
+                <ScalarProperty Name="Cap" ColumnName="Cap" />
+                <ScalarProperty Name="Citta" ColumnName="Citta" />
+                <ScalarProperty Name="Pv" ColumnName="Pv" />
+                <ScalarProperty Name="Regione" ColumnName="Regione" />
+                <ScalarProperty Name="insertTime" ColumnName="insertTime" />
+                <ScalarProperty Name="is_cantiereAttivo" ColumnName="is_cantiereAttivo" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="ID_sconto" ColumnName="ID_sconto" />
+                <ScalarProperty Name="is_CompAss_Cattolica" ColumnName="is_CompAss_Cattolica" />
+                <ScalarProperty Name="is_reteAutokey" ColumnName="is_reteAutokey" />
+                <ScalarProperty Name="is_CompAss_Generali" ColumnName="is_CompAss_Generali" />
+                <ScalarProperty Name="costoMaterialeDiConsumo" ColumnName="costoMaterialeDiConsumo" />
+                <ScalarProperty Name="costoManoDopera" ColumnName="costoManoDopera" />
+                <ScalarProperty Name="costoHosting" ColumnName="costoHosting" />
+                <ScalarProperty Name="costoVetturaSostitutiva" ColumnName="costoVetturaSostitutiva" />
+                <ScalarProperty Name="is_vetturaSostitutiva" ColumnName="is_vetturaSostitutiva" />
+                <ScalarProperty Name="is_presenzaLavaggio" ColumnName="is_presenzaLavaggio" />
+                <ScalarProperty Name="dataFineAttivitaCantiere" ColumnName="dataFineAttivitaCantiere" />
+                <ScalarProperty Name="dataInizioAttivitaCantiere" ColumnName="dataInizioAttivitaCantiere" />
+                <ScalarProperty Name="id_contratto" ColumnName="id_contratto" />
+                <ScalarProperty Name="id_tipoCantiere" ColumnName="id_tipoCantiere" />
+                <ScalarProperty Name="id_reteCantiere_BUTTARE" ColumnName="id_reteCantiere_BUTTARE" />
+                <ScalarProperty Name="referente" ColumnName="referente" />
+                <ScalarProperty Name="sitoWeb_cantiere" ColumnName="sitoWeb_cantiere" />
+                <ScalarProperty Name="fax1_cantiere" ColumnName="fax1_cantiere" />
+                <ScalarProperty Name="mail3_cantiere" ColumnName="mail3_cantiere" />
+                <ScalarProperty Name="mail2_cantiere" ColumnName="mail2_cantiere" />
+                <ScalarProperty Name="mail1_cantiere" ColumnName="mail1_cantiere" />
+                <ScalarProperty Name="tel3_cantiere" ColumnName="tel3_cantiere" />
+                <ScalarProperty Name="tel2_cantiere" ColumnName="tel2_cantiere" />
+                <ScalarProperty Name="tel1_cantiere" ColumnName="tel1_cantiere" />
+                <ScalarProperty Name="piva_cantiere" ColumnName="piva_cantiere" />
+                <ScalarProperty Name="ID_valutazioneCantiere" ColumnName="ID_valutazioneCantiere" />
+                <ScalarProperty Name="ID_maps" ColumnName="ID_maps" />
+                <ScalarProperty Name="ID_nazione" ColumnName="ID_nazione" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="ID_cap" ColumnName="ID_cap" />
+                <ScalarProperty Name="ID_localita" ColumnName="ID_localita" />
+                <ScalarProperty Name="ragioneSociale" ColumnName="ragioneSociale" />
+                <ScalarProperty Name="Codice" ColumnName="Codice" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUK_tecnici">
+            <EntityTypeMapping TypeName="AutokeyModel.AUK_tecnici">
+              <MappingFragment StoreEntitySet="AUK_tecnici">
+                <ScalarProperty Name="dataFineAttivitaTecnico" ColumnName="dataFineAttivitaTecnico" />
+                <ScalarProperty Name="dataInizioAttivitaTecnico" ColumnName="dataInizioAttivitaTecnico" />
+                <ScalarProperty Name="ID_taglia" ColumnName="ID_taglia" />
+                <ScalarProperty Name="Is_OnCalendario" ColumnName="Is_OnCalendario" />
+                <ScalarProperty Name="Is_assicurato" ColumnName="Is_assicurato" />
+                <ScalarProperty Name="insertUser" ColumnName="insertUser" />
+                <ScalarProperty Name="IDruolo" ColumnName="IDruolo" />
+                <ScalarProperty Name="ID_fornitoreTecnico" ColumnName="ID_fornitoreTecnico" />
+                <ScalarProperty Name="ID_valutazioneTecnico" ColumnName="ID_valutazioneTecnico" />
+                <ScalarProperty Name="is_perito" ColumnName="is_perito" />
+                <ScalarProperty Name="is_controller" ColumnName="is_controller" />
+                <ScalarProperty Name="is_smontatore" ColumnName="is_smontatore" />
+                <ScalarProperty Name="is_tecnico" ColumnName="is_tecnico" />
+                <ScalarProperty Name="mail1_tecnico" ColumnName="mail1_tecnico" />
+                <ScalarProperty Name="tel2_tecnico" ColumnName="tel2_tecnico" />
+                <ScalarProperty Name="tel1_tecnico" ColumnName="tel1_tecnico" />
+                <ScalarProperty Name="note_tecnico" ColumnName="note_tecnico" />
+                <ScalarProperty Name="ID_regione" ColumnName="ID_regione" />
+                <ScalarProperty Name="ID_localita_tecnico" ColumnName="ID_localita_tecnico" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="nomeTecnico" ColumnName="nomeTecnico" />
+                <ScalarProperty Name="cognomeTecnico" ColumnName="cognomeTecnico" />
+                <ScalarProperty Name="ragioneSocialeTecnico" ColumnName="ragioneSocialeTecnico" />
+                <ScalarProperty Name="Codice" ColumnName="Codice" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Lotti">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Lotti">
+              <MappingFragment StoreEntitySet="RPC_Lotti">
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Telai">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Telai">
+              <MappingFragment StoreEntitySet="RPC_Telai">
+                <ScalarProperty Name="Targa" ColumnName="Targa" />
+                <ScalarProperty Name="DescrModello" ColumnName="DescrModello" />
+                <ScalarProperty Name="Condizione" ColumnName="Condizione" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Telaio" ColumnName="Telaio" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+                <ScalarProperty Name="IDLotto" ColumnName="IDLotto" />
+                <ScalarProperty Name="IDOperatore" ColumnName="IDOperatore" />
+                <ScalarProperty Name="IDCantiere" ColumnName="IDCantiere" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PKT_Operatori">
+            <EntityTypeMapping TypeName="AutokeyModel.PKT_Operatori">
+              <MappingFragment StoreEntitySet="PKT_Operatori">
+                <ScalarProperty Name="IDRuolo" ColumnName="IDRuolo" />
+                <ScalarProperty Name="IDTecnici" ColumnName="IDTecnici" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_FotoXTelaio">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_FotoXTelaio">
+              <MappingFragment StoreEntitySet="RPC_FotoXTelaio">
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="NomeFile" ColumnName="NomeFile" />
+                <ScalarProperty Name="IDTelaio" ColumnName="IDTelaio" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_telai_vw">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_telai_vw">
+              <MappingFragment StoreEntitySet="RPC_telai_vw">
+                <ScalarProperty Name="Targa" ColumnName="Targa" />
+                <ScalarProperty Name="DescrModello" ColumnName="DescrModello" />
+                <ScalarProperty Name="Condizione" ColumnName="Condizione" />
+                <ScalarProperty Name="Cantiere" ColumnName="Cantiere" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="NumFoto" ColumnName="NumFoto" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Telaio" ColumnName="Telaio" />
+                <ScalarProperty Name="IDLotto" ColumnName="IDLotto" />
+                <ScalarProperty Name="IDOperatore" ColumnName="IDOperatore" />
+                <ScalarProperty Name="IDCantiere" ColumnName="IDCantiere" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Cantieri_vw">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Cantieri_vw">
+              <MappingFragment StoreEntitySet="RPC_Cantieri_vw">
+                <ScalarProperty Name="ragioneSociale" ColumnName="ragioneSociale" />
+                <ScalarProperty Name="IDCantiere" ColumnName="IDCantiere" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Danni">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Danni">
+              <MappingFragment StoreEntitySet="RPC_Danni">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_DanniXTelaio">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_DanniXTelaio">
+              <MappingFragment StoreEntitySet="RPC_DanniXTelaio">
+                <ScalarProperty Name="NoteDanno" ColumnName="NoteDanno" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IDGravita" ColumnName="IDGravita" />
+                <ScalarProperty Name="IDDanno" ColumnName="IDDanno" />
+                <ScalarProperty Name="IDParte" ColumnName="IDParte" />
+                <ScalarProperty Name="IDTelaio" ColumnName="IDTelaio" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Gravita">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Gravita">
+              <MappingFragment StoreEntitySet="RPC_Gravita">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Parti">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Parti">
+              <MappingFragment StoreEntitySet="RPC_Parti">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPC_Cantieri_vw_FABIO">
+            <EntityTypeMapping TypeName="AutokeyModel.RPC_Cantieri_vw_FABIO">
+              <MappingFragment StoreEntitySet="RPC_Cantieri_vw_FABIO">
+                <ScalarProperty Name="ragioneSociale" ColumnName="ragioneSociale" />
+                <ScalarProperty Name="IDCantiere" ColumnName="IDCantiere" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

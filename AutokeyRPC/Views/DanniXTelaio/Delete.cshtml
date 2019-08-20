@@ -1,0 +1,67 @@
+﻿@model AutokeyRPC.Models.RPC_DanniXTelaio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Cancellazione danno</h3>
+
+<h4>Vuoi davvero cancellare questo item di danno ?</h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Parte
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Parti.Descr)
+        </dd>
+        <dt>
+            Tipo danno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Danni.Descr)
+        </dd>
+
+        <dt>
+            Gravità
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Gravita.Descr)
+        </dd>
+
+
+
+
+        <dt>
+            Data creazione item
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteDanno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteDanno)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancella item" class="btn btn-default" /> |
+            @Html.ActionLink("Torna ad elenco items...", "Index")
+        </div>
+    }
+</div>

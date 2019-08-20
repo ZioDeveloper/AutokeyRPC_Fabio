@@ -1,0 +1,62 @@
+﻿@model AutokeyRPC.Models.RPC_DanniXTelaio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Info item danno</h3>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Parti
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Parti.Descr)
+        </dd>
+        <dt>
+            Tipo danno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Danni.Descr)
+        </dd>
+
+        <dt>
+            Gravità
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPC_Gravita.Descr)
+        </dd>
+
+
+
+
+        <dt>
+            Data creazione item
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteDanno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteDanno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Torna  alla lista items...", "Index")
+    @Html.ActionLink("Torna  ad elenco telai", "DoRefresh" ,"Home")
+</p>
